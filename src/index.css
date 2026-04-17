@@ -105,6 +105,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Prevent iOS from inflating font sizes on orientation change */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -116,6 +119,8 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent horizontal overflow causing browser auto-zoom */
+  overflow-x: hidden;
 }
 
 #root {
@@ -1553,6 +1558,7 @@ input, textarea, select {
    RESPONSIVE — MOBILE
 ═══════════════════════════════════════════════ */
 @media (max-width: 768px) {
+  /* ─── Layout ─── */
   .sidebar {
     display: none;
   }
@@ -1564,10 +1570,18 @@ input, textarea, select {
   .app-main {
     margin-left: 0;
     padding-bottom: var(--bottomnav-height);
+    /* Prevent any child from bleeding outside */
+    overflow-x: hidden;
   }
 
+  /* ─── Typography scale-down ─── */
+  body {
+    font-size: 14px;
+  }
+
+  /* ─── Page spacing ─── */
   .page-container {
-    padding: var(--space-5) var(--space-4);
+    padding: var(--space-4) var(--space-3);
   }
 
   .page-header {
@@ -1575,12 +1589,15 @@ input, textarea, select {
     align-items: stretch;
   }
 
-  .blocks-grid {
-    grid-template-columns: 1fr;
+  /* ─── Block view header ─── */
+  .block-view-header {
+    padding: var(--space-4);
+    margin-bottom: var(--space-5);
   }
 
-  .modal-box {
-    padding: var(--space-6);
+  .block-view-title {
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
   }
 
   .block-view-stats {
@@ -1588,16 +1605,79 @@ input, textarea, select {
     gap: 0;
   }
 
+  .block-stat {
+    padding: var(--space-3) var(--space-4);
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .block-stat:last-child {
+    border-bottom: none;
+  }
+
+  .block-stat-value {
+    font-size: 0.95rem;
+  }
+
+  /* Section header wraps on narrow screens */
+  .block-section-header {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  /* ─── Buttons — more compact ─── */
+  .btn {
+    padding: 8px 14px;
+    font-size: 0.78rem;
+  }
+
+  /* ─── Grid ─── */
+  .blocks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ─── Modal ─── */
+  .modal-overlay {
+    padding: var(--space-3);
+    align-items: flex-end;
+  }
+
+  .modal-box {
+    padding: var(--space-5);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* ─── Stats strip ─── */
   .stats-strip {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .stat-card-value {
+    font-size: 1.35rem;
+  }
+
+  /* ─── Dashboard headings ─── */
+  .heading-xl {
+    font-size: 1.6rem;
+  }
+
+  .heading-lg {
+    font-size: 1.25rem;
+  }
+
+  /* ─── Login ─── */
   .login-features {
     grid-template-columns: 1fr;
   }
 
   .login-card {
-    padding: var(--space-8);
+    padding: var(--space-6);
+    margin: var(--space-3);
+  }
+
+  .login-logo {
+    font-size: 1.5rem;
   }
 }
 
