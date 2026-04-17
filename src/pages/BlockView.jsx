@@ -68,9 +68,9 @@ const BlockView = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 16, gap: 12 }}>
+        <div className="block-view-header-row">
           <h1 className="block-view-title">{block.title || "Untitled"}</h1>
-          <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+          <div className="block-view-actions">
             <button className="btn btn-ghost" onClick={() => setEditOpen(true)}>
               ✏️ Edit
             </button>
