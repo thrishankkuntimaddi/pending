@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import BlockView from "./pages/BlockView";
 import Motivation from "./pages/Motivation";
 import Loader from "./components/ui/Loader";
+import PWAPrompt from "./components/ui/PWAPrompt";
 
 const PAGE_TRANSITION = {
   initial: { opacity: 0, y: 8 },
@@ -45,6 +46,7 @@ const AuthedApp = () => {
           onClose={() => setMobileAddOpen(false)}
           parentId={null}
         />
+        <PWAPrompt />
       </div>
     </BlocksProvider>
   );

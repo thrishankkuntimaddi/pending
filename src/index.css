@@ -1600,3 +1600,67 @@ input, textarea, select {
     padding: var(--space-8);
   }
 }
+
+/* ============================================================
+   PWA UPDATE PROMPT
+   ============================================================ */
+.pwa-prompt {
+  position: fixed;
+  bottom: calc(var(--bottom-nav-h, 60px) + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  width: min(92vw, 480px);
+}
+
+.pwa-prompt-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--surface-elevated);
+  border: 1px solid rgba(124, 106, 247, 0.4);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3) var(--space-4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(124, 106, 247, 0.15);
+  backdrop-filter: blur(16px);
+}
+
+.pwa-prompt-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.pwa-prompt-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.pwa-prompt-text strong {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pwa-prompt-text span {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.pwa-prompt-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .pwa-prompt {
+    bottom: 24px;
+    left: auto;
+    right: 24px;
+    transform: none;
+  }
+}
